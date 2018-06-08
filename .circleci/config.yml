@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Build Images
           command: |
-              docker build -t $DOCKERHUB_USER/$IMAGE:$CIRCLE_TAG -t $DOCKERHUB_USER/$IMAGE .
+              docker build -t $DOCKERHUB_USER/$IMAGE .
 
   build_tagged:
     <<: *defaults
