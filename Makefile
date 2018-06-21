@@ -13,7 +13,7 @@ ci-build:
 	@docker save -o docker_cache/${IMAGE}.tar ${DOCKERHUB_USER}/${IMAGE}
 
 push:
-	@docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
+	@docker login -u ${DOCKERHUB_USER} -p "${DOCKERHUB_PASSWORD}"
 	@docker load < docker_cache/${CIRCLE_TAG}.tar
 	@docker push ${DOCKERHUB_USER}/${IMAGE}:${CIRCLE_TAG}
 	@docker load < docker_cache/${IMAGE}.tar
