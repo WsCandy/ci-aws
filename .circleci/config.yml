@@ -11,8 +11,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: Build Images
           command: make build
@@ -20,8 +18,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: Build Images
           command: make ci-build
@@ -35,8 +31,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/repo
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: Push Images
           command: make push
